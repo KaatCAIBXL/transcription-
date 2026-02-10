@@ -22,7 +22,7 @@ transcribeBtn.addEventListener('click', async () => {
 
     try {
         // Start transcription
-        const response = await fetch('http://localhost:3000/api/transcribe', {
+        const response = await fetch('/api/transcribe', {
             method: 'POST',
             body: (() => {
                 const formData = new FormData();
@@ -55,7 +55,7 @@ function startProgressPolling() {
 
     progressInterval = setInterval(async () => {
         try {
-            const response = await fetch(`http://localhost:3000/api/transcribe/${sessionId}`);
+            const response = await fetch(`/api/transcribe/${sessionId}`);
             const data = await response.json();
 
             // Update progress
